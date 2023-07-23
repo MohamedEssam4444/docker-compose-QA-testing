@@ -3,7 +3,7 @@ version: '3.8'
 services:
   react-app:
     build:
-      context: /home/circleci/project/react-repo1  # Absolute path to react-repo1
+      context: ${CIRCLE_WORKING_DIRECTORY}/react-repo1
     ports:
       - "3000:3000"
     networks:
