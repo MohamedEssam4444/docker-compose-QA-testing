@@ -3,7 +3,7 @@ version: '3.8'
 services:
   react-app:
     build:
-      context: ../react-repo1
+      context: ../react-repo1     # Adjust the relative path based on the actual directory structure
     ports:
       - "3000:3000"
     networks:
