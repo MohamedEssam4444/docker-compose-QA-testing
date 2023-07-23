@@ -8,12 +8,7 @@ test('has title', async ({ page }) => {
   await expect(page).toHaveTitle(/Playwright/);
 });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects the URL to contain intro.
-  await expect(page).toHaveURL(/.*intro/);
+test('env link', async ({ page }) => {
+  const reactAppServerURL = process.env.REACT_APP_SERVER_URL || 'http://localhost:3000';
+  await page.goto(reactAppServerURL);
 });
