@@ -4,15 +4,15 @@ jobs:
     docker:
       - image: circleci/node:14
         environment:
-          - CI: true
+          CI: true
     steps:
       - checkout
       - setup_remote_docker
 
-      # Build the Docker image for Playwright tests
-      - run:
-          name: Build Playwright tests Docker image
-          command: docker build -t playwright-tests .
+      # # Build the Docker image for Playwright tests
+      # - run:
+      #     name: Build Playwright tests Docker image
+      #     command: docker build -t playwright-tests .
 
       # Use Docker-Compose to run the Playwright tests
       - run:
