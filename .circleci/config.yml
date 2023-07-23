@@ -8,10 +8,16 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      # Other steps for installing dependencies, etc.
+
+      # Build the Docker image for Playwright tests
+      - run:
+          name: Build Playwright tests Docker image
+          command: docker build -t playwright-tests .
+
+      # Use Docker-Compose to run the Playwright tests
       - run:
           name: Run Playwright tests
-          command: npm test  # or the command to run your Playwright tests
+          command: docker-compose up --abort-on-container-exit
 
 workflows:
   version: 2
