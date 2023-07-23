@@ -3,7 +3,7 @@ version: '3.8'
 services:
   react-app:
     build:
-      context: ${CIRCLE_WORKING_DIRECTORY}/react-repo1
+      context: ../react-repo1
     ports:
       - "3000:3000"
     networks:
