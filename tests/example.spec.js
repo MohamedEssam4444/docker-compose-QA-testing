@@ -9,6 +9,6 @@ test('has title', async ({ page }) => {
 });
 
 test('env link', async ({ page }) => {
-  const reactAppServerURL = process.env.REACT_APP_SERVER_URL || 'http://localhost:3000';
+  const reactAppServerURL = process.env.REACT_APP_SERVER_URL;
   await page.goto(reactAppServerURL);
 });
