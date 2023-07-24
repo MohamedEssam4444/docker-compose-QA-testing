@@ -1,16 +1,4 @@
 # Build stage for React app
-FROM node:14 AS react-builder
-WORKDIR /app
-COPY ../react-repo1/package*.json ./
-RUN npm install
-COPY ../react-repo1 .
-RUN npm run build
-
-# Production stage for Playwright tests with React app
-FROM node:14
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
+FROM mcr.microsoft.com/playwright::v1.33.0-focal
+RUN apt-get update && apt-get -y install libnss3 libatk-bridge2.0-0 libdrm-dev libxkbcommon-dev libgbm-dev libasound-dev libatspi2.0-0 libxshmfence-dev
 COPY . .
-COPY --from=react-builder /app/build ./build
-CMD ["npm", "test"]
